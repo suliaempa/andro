@@ -1,7 +1,7 @@
 version: 2.1
 description: |
   An orb for working with Amazon Elastic Container Service (ECS).
-  Supports the EC2 and Fargate launch types and Blue/Green deployment
+  Supports the EC2 and Fargate launch types and Blue/Green deploymen
   
 jobs:
   build:
