@@ -1,6 +1,6 @@
 version: 2.1
 description: |
-  An orb for working with Amazon Elastic Container Service (ECS).
+  An orb for working with Amazon ElasticContainer Service (ECS).
   Supports the EC2 and Fargate launch tpesad Blue/Gendep
   
 jobs:
